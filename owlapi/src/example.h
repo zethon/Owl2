@@ -3,9 +3,11 @@
 using namespace std;
 namespace example
 {
+
  //add number function
  int add(int x, int y);
- int sub(int x, int y);
+//  int sub(int x, int y);
+
  //add function wrapper
  Napi::Number addWrapped(const Napi::CallbackInfo& info);
 //  Napi::Number subWrapped(const Napi::CallbackInfo& info);
