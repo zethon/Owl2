@@ -9,17 +9,19 @@ var worker = new Worker('./worker.js');
 worker.onmessage = function(event) 
 { 
     console.log(event);
-    if (event.func != "add")
+    if (event.data.func == "add")
     {
         //print result on console and h1 tag
-        console.log("worker : ", event.data);
-        document.querySelector('h1').innerHTML = "native addon add function(3, 4): " + event.data;
+        console.log("worker : ", event.data.value);
+        document.querySelector('h1').innerHTML = "native addon add function(3, 4): " + event.data.value;
         //terminate webworker
         worker.terminate();
     }
-    else
+    else if (event.data.func == "sub")
     {
-        alert(event.data);
+        console.log("EVENT RESPONSE: " + event.data);
+        var subel = document.getElementById('subvalue'); 
+        subel.innerText = "sub is [" + event.data.value + "]";
     }
    
    //set it to undefined
@@ -28,5 +30,5 @@ worker.onmessage = function(event)
 
 worker.onerror = function (event) 
 {
-  console.log(event.message, event);
+    console.log(event.message, event);
 };
