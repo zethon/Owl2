@@ -9,7 +9,7 @@ var retevent =
 
 //console.log(result);
 //communicating with main process of electron app.
-postMessage(retevent, "");
+postMessage(retevent);
 
 const {sub} = require('./owlapi/build/Release/addon.node');
 var subevent = 
@@ -18,4 +18,4 @@ var subevent =
         'func' : 'sub'
     };
 
-postMessage(subevent, "");
+postMessage(subevent);
