@@ -1,4 +1,5 @@
-const {sub,add} = require('./owlapi/build/Release/owlapi.node');
+console.log("WORKER!!");
+const {sub,add} = require('../owlapi/build/Release/owlapi.node');
 var subevent = 
     {
         'value': sub(4,1),

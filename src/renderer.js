@@ -5,7 +5,7 @@
 // selectively enable features needed in the rendering
 // process.
 
-var worker = new Worker('./worker.js');
+var worker = new Worker('./src/worker.js');
 worker.onmessage = function(event) 
 { 
     console.log(event);
