@@ -1,5 +1,14 @@
+const {sub,add} = require('./owlapi/build/Release/owlapi.node');
+var subevent = 
+    {
+        'value': sub(4,1),
+        'func' : 'sub'
+    };
+
+postMessage(subevent);
+
 //address of native addon 
-const {add} = require('./owlapi/build/Release/addon.node'); 
+// const {add} = require('./owlapi/build/Release/owlapi.node'); 
 //Calling functions of native addon 
 var retevent = 
     {
@@ -11,11 +20,3 @@ var retevent =
 //communicating with main process of electron app.
 postMessage(retevent);
 
-const {sub} = require('./owlapi/build/Release/addon.node');
-var subevent = 
-    {
-        'value': sub(4,1),
-        'func' : 'sub'
-    };
-
-postMessage(subevent);

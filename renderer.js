@@ -15,7 +15,7 @@ worker.onmessage = function(event)
         console.log("worker : ", event.data.value);
         document.querySelector('h1').innerHTML = "native addon add function(3, 4): " + event.data.value;
         //terminate webworker
-        worker.terminate();
+        // worker.terminate();
     }
     else if (event.data.func == "sub")
     {
@@ -25,7 +25,7 @@ worker.onmessage = function(event)
     }
    
    //set it to undefined
-   worker = undefined;
+//    worker = undefined;
 }
 
 worker.onerror = function (event) 
