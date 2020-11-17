@@ -1,5 +1,6 @@
 #include <napi.h>
 #include <iostream>
+
 using namespace std;
 namespace example
 {
