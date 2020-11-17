@@ -8,3 +8,13 @@ This is a catalog of links that helped during development of the code in this re
 ### Making an Electron App into an Exe
 
 * https://stackoverflow.com/questions/40615837/how-to-compile-an-electron-application-to-a-exe
+
+### Electron App title bar
+
+* https://stackoverflow.com/questions/46222035/set-color-of-windows-titlebar-electron-js
+** https://github.com/sidneys/electron-titlebar-windows
+** https://github.com/Menci/electron-titlebar
+
+### Application Notifications
+
+* https://www.electronjs.org/docs/tutorial/notifications
