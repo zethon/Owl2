@@ -32,3 +32,9 @@ worker.onerror = function (event)
 {
     console.log(event.message, event);
 };
+
+document.querySelector('#btnEd').addEventListener('click', () => 
+{
+    console.log("HAHAHAHAHAH!!")
+    // getData()
+})
