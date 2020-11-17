@@ -11,17 +11,13 @@ worker.onmessage = function(event)
     console.log(event);
     if (event.data.func == "add")
     {
-        //print result on console and h1 tag
-        console.log("worker : ", event.data.value);
-        document.querySelector('h1').innerHTML = "native addon add function(3, 4): " + event.data.value;
-        //terminate webworker
-        // worker.terminate();
+        var addel = document.getElementById('addvalue');
+        addel.innerHTML = "add is [" + event.data.value + "]";
     }
     else if (event.data.func == "sub")
     {
-        console.log("EVENT RESPONSE: " + event.data);
         var subel = document.getElementById('subvalue'); 
-        subel.innerText = "sub is [" + event.data.value + "]";
+        subel.innerHTML = "sub is [" + event.data.value + "]";
     }
    
    //set it to undefined
@@ -35,6 +31,6 @@ worker.onerror = function (event)
 
 document.querySelector('#btnEd').addEventListener('click', () => 
 {
-    console.log("HAHAHAHAHAH!!")
-    // getData()
+    var btnval = document.getElementById('buttonvalue');
+    btnval.innerHTML = 'Button Clicked!';
 })
