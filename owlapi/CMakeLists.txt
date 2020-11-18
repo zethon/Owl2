@@ -15,13 +15,23 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # you should add this line in every CMake.js based project.
 include_directories(${CMAKE_JS_INC})
 
-# Declare the location of the source files
-file(GLOB SOURCE_FILES "src/*.cpp" "src/*.h")
+set(SOURCE_FILES
+    src/example.cpp
+    src/OwlWrapper.cpp
+)
+
+set(HEADER_FILES
+    src/example.h
+    src/OwlWrapper.h
+)
 
 # This line will tell CMake that we're building a shared library
 # from the above source files
 # named after the project's name
-add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${CMAKE_JS_SRC})
+add_library(${PROJECT_NAME} SHARED 
+    ${SOURCE_FILES} 
+    ${HEADER_FILES}
+    ${CMAKE_JS_SRC})
 
 # This line will give our library file a .node extension without any "lib" prefix
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
