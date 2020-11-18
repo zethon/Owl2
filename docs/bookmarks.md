@@ -18,3 +18,8 @@ This is a catalog of links that helped during development of the code in this re
 ### Application Notifications
 
 * https://www.electronjs.org/docs/tutorial/notifications
+
+### NAPI Wrapping C++ Objects for Javascript
+
+* https://napi.inspiredware.com/getting-started/objectwrap.html
+* https://github.com/OrsoEric/2020-01-18-Test-NODEJS-Return-Class

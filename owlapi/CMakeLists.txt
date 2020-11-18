@@ -16,11 +16,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(${CMAKE_JS_INC})
 
 set(SOURCE_FILES
+    src/Board.cpp
     src/example.cpp
     src/OwlWrapper.cpp
 )
 
 set(HEADER_FILES
+    src/Board.h
     src/example.h
     src/OwlWrapper.h
 )

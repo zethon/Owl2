@@ -21,3 +21,16 @@ var retevent =
 //communicating with main process of electron app.
 postMessage(retevent);
 
+const {BoardProxy} = require('../owlapi/build/Release/owlapi.node');
+const assert = require("assert");
+assert(BoardProxy, "No BoardProxy!");
+const board = new BoardProxy("id222");
+assert(board.id, "No board id function");
+console.log("BOARD: " + board.id())
+var boardevent = 
+    {
+        'value': board.id(),
+        'func' : 'board'
+    };
+postMessage(boardevent);
+

@@ -4,6 +4,53 @@
 namespace owl
 {
 
+BoardProxy::BoardProxy(const Napi::CallbackInfo& info) 
+    : ObjectWrap{info}
+{
+    Napi::Env env = info.Env();
+
+    if (info.Length() < 1) 
+    {
+        Napi::TypeError::New(env, "Wrong number of arguments")
+            .ThrowAsJavaScriptException();
+
+        return;
+    }
+
+    if (!info[0].IsString()) 
+    {
+        Napi::TypeError::New(env, "there's no board Id!")
+            .ThrowAsJavaScriptException();
+
+        return;
+    }
+
+    const std::string id = info[0].As<Napi::String>().Utf8Value();
+    _board = std::make_shared<owl::Board>(id);
+}
+
+Napi::Value BoardProxy::id(const Napi::CallbackInfo& info) 
+{
+    Napi::Env env = info.Env();
+    return Napi::String::New(env, _board->id());
+}
+
+Napi::Function BoardProxy::GetClass(Napi::Env env) 
+{
+    return DefineClass(env, 
+        "BoardProxy", 
+        {
+            BoardProxy::InstanceMethod("id", &BoardProxy::id),
+        });
+}
+
+// Napi::Object Init(Napi::Env env, Napi::Object exports) 
+// {
+//     Napi::String name = Napi::String::New(env, "BoardProxy");
+//     exports.Set(name, BoardProxy::GetClass(env));
+//     return exports;
+// }
+
 Napi::Number addWrapped(const Napi::CallbackInfo& info)
 {
     Napi::Env env = info.Env();
@@ -42,10 +89,14 @@ Napi::Number subWrapped(const Napi::CallbackInfo& info)
 
 Napi::Object Init(Napi::Env env, Napi::Object exports) 
 {
-  //export Napi function
-  exports.Set("add", Napi::Function::New(env, owl::addWrapped));
-  exports.Set("sub", Napi::Function::New(env, owl::subWrapped));
-  return exports;
+    Napi::String name = Napi::String::New(env, "BoardProxy");
+    exports.Set(name, BoardProxy::GetClass(env));
+    // return exports;
+
+    //export Napi function
+    exports.Set("add", Napi::Function::New(env, owl::addWrapped));
+    exports.Set("sub", Napi::Function::New(env, owl::subWrapped));
+    return exports;
 }
 
 }

@@ -1,7 +1,21 @@
 #include <napi.h>
+#include "Board.h"
 
 namespace owl
 {
+
+class BoardProxy : 
+    public Napi::ObjectWrap<BoardProxy>
+{
+public:
+    BoardProxy(const Napi::CallbackInfo&);
+    Napi::Value id(const Napi::CallbackInfo&);
+
+    static Napi::Function GetClass(Napi::Env);
+
+private:
+    owl::BoardPtr   _board;
+};
 
 //add function wrapper
 Napi::Number addWrapped(const Napi::CallbackInfo& info);

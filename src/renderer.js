@@ -19,6 +19,11 @@ worker.onmessage = function(event)
         var subel = document.getElementById('subvalue'); 
         subel.innerHTML = "sub is [" + event.data.value + "]";
     }
+    else if (event.data.func == "board")
+    {
+        var subel = document.getElementById('boardvalue'); 
+        subel.innerHTML = "board is [" + event.data.value + "]";
+    }
    
    //set it to undefined
 //    worker = undefined;
