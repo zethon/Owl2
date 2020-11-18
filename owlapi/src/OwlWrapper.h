@@ -1,6 +1,6 @@
 #include <napi.h>
 
-namespace example
+namespace owl
 {
 
 //add function wrapper

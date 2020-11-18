@@ -1,10 +1,10 @@
 //#include "boost/format.hpp"
 #include "example.h"
 
-namespace example
+namespace owl
 {
 
-int example::add(int x, int y)
+int add(int x, int y)
 {
     auto z = x + y;
     // const output = (boost::format("%1% + %2% = %3%") % x % y % z).str();
@@ -12,7 +12,7 @@ int example::add(int x, int y)
     return z;
 }
 
-int example::sub(int x, int y)
+int sub(int x, int y)
 {
     return x - y;
 }

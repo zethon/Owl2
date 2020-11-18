@@ -1,7 +1,7 @@
 #include "example.h"
 #include "OwlWrapper.h"
 
-namespace example
+namespace owl
 {
 
 Napi::Number addWrapped(const Napi::CallbackInfo& info)
@@ -19,7 +19,7 @@ Napi::Number addWrapped(const Napi::CallbackInfo& info)
     Napi::Number second = info[1].As<Napi::Number>();
     
     //run c++ function return value and return it in javascript
-    Napi::Number returnValue = Napi::Number::New(env, example::add(first.Int32Value(), second.Int32Value()));
+    Napi::Number returnValue = Napi::Number::New(env, owl::add(first.Int32Value(), second.Int32Value()));
     
     return returnValue;
 }
@@ -35,7 +35,7 @@ Napi::Number subWrapped(const Napi::CallbackInfo& info)
     Napi::Number first = info[0].As<Napi::Number>();
     Napi::Number second = info[1].As<Napi::Number>();
     //run c++ function return value and return it in javascript
-    Napi::Number returnValue = Napi::Number::New(env, example::sub(first.Int32Value(), second.Int32Value()));
+    Napi::Number returnValue = Napi::Number::New(env, owl::sub(first.Int32Value(), second.Int32Value()));
     
     return returnValue;
 }
@@ -43,8 +43,8 @@ Napi::Number subWrapped(const Napi::CallbackInfo& info)
 Napi::Object Init(Napi::Env env, Napi::Object exports) 
 {
   //export Napi function
-  exports.Set("add", Napi::Function::New(env, example::addWrapped));
-  exports.Set("sub", Napi::Function::New(env, example::subWrapped));
+  exports.Set("add", Napi::Function::New(env, owl::addWrapped));
+  exports.Set("sub", Napi::Function::New(env, owl::subWrapped));
   return exports;
 }
 

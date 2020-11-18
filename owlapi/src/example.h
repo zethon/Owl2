@@ -1,6 +1,6 @@
 #include <iostream>
 
-namespace example
+namespace owl
 {
 
 //add number function
